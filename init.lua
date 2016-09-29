@@ -100,19 +100,24 @@ minetest.register_chatcommand("spawnto",{
 
 minetest.register_abm{
         nodenames = {"spawnstep:spawntrap"},
-        neighbors = {"group:liquid","air"},
+        neighbors = nil,
         interval = spawnstep.interval,
         chance = 1,
         action = function(pos)
 		for _,obj in pairs(minetest.get_objects_inside_radius(pos ,spawnstep.proximity)) do
 			if obj:is_player() then
-				if count_nearby_mobs(pos,math.ceil(spawnstep.spawnrange*3)) < spawnstep.maxmobs then
+				minetest.debug("Player "..obj:get_player_name().." triggered spawn trap")
+				if count_nearby_mobs(pos,math.ceil(spawnstep.spawnrange*1.4)) < spawnstep.maxmobs then
 					local mobname = get_mob_from_node(pos)
 					if mobname ~= nil then
 						local mobnicename = mobname:sub(mobname:find(':')+1,#mobname )
 						minetest.chat_send_player(obj:get_player_name(),"A wild "..mobnicename.." appeared!")
 						spawn_mob(pos,mobname)
+					else
+						minetest.debug("Failed to determine a mob.")
 					end
+				else
+					minetest.debug("Too many mobs. Not spawning.")
 				end
 			end
 		end
