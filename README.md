@@ -22,7 +22,9 @@ You do not need to add any dependencies to depends.txt per mob mod.
 
 Place a `spawnstep:spawntrap` node directly on top of a node as configured in `spawndefs.lua` and the corresponding mob will spawn.
 
-To dig traps, you need the `dipsawntrap` privilege.
+To dig traps, you need the `digsawntrap` privilege.
+
+You can change the spawn trap's texture in `spawndefs.lua`
 
 ## `/spawnto` command
 
