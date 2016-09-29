@@ -1,33 +1,60 @@
 
-spawnstep.proximity = 1 -- radius range of player detection, around trap node
-spawnstep.spawnrange = 7 -- radius range of where the mob will spawn
 
-spawnstep.interval = 1 -- how frequently to try to spawn a new mob (seconds)
-
-spawnstep.maxmobs = 4 -- maxiumum number of mobs to allow in area defined by spawn range, around the trap node
-
-spawnstep.tiles = { -- define the tiles for the trap node
-	"default_stone.png^default_mese_crystal.png"
-}
 
 -- ++++++++++++++++++++
 
 spawnstep.mobnodes = {
-	dirtmonster = {
+	senderman = {
+		node="nyancat:nyancat",
+		mob="mobs_senderman:senderman",
+	},
+	giantsandworm = {
+		node="default:sandstonebrick",
+		mob="nssm:giant_sandworm",
+	},
+	echidna = {
+		node="default:mossycobble",
+		mob="nssm:echidna",
+	},
+	phoenix = {
+		node="fire:permanent_flame",
+		mob="nssm:phoenix",
+	},
+	duckking = {
 		node="default:dirt",
-		mob="mobs_monster:dirt_monster",
+		mob="nssm:duckking",
 	},
-	stonemonster = {
-		node="default:stone",
-		mob="mobs_monster:stone_monster",
+	lavatitan = {
+		node="default:lava_source",
+		mob="nssm:lava_titan",
 	},
-	dungeonmaster = {
-		node="default:obsidian",
-		mob="mobs_monster:dungeon_master"
+	antqueen = {
+		node="nssm:antdirt",
+		mob="nssm:antqueen"
 	},
-	bossdm = {
-		node="default:nyancat",
-		mob="mobs_monster:dungeon_master_boss"
+	tarantula = {
+		node="nssm:web",
+		mob="nssm:tarantula",
 	},
+	kraken = {
+		node="default:water_source",
+		mob="nssm:kraken",
+	},
+	icelamander = {
+		node="default:snow",
+		mob="nssm:icelamander",
+	},
+	pumpking = {
+		node="default:pine_tree",
+		mob="nssm:pumpking",
+	},
+	nightmaster = {
+		node="default:torch",
+		mob="nssm:night_master",
+	},
+	nyan = {
+		node="nyancat:nyancat_rainbow",
+		mob="dmobs:nyan",
+	}
 }
 
