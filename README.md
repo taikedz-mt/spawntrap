@@ -8,7 +8,7 @@ Add a block that will start spawning mobs when a player is near.
 
 Provided under LGPLv3 - see `LICENSE.txt` or https://www.gnu.org/licenses/lgpl.html for the full text.
 
-This software is Free Software : you can distribute, change and distribute the modified versions of this software provided that the copy7right notice and license remain unchanged, and you provide the source code of the modifications to whomever asks.
+This software is Free Software : you can distribute, change and distribute the modified versions of this software provided that the copyright notice and license remain unchanged, and you provide the source code of the modifications to whomever asks.
 
 You are not compelled to license your own software under the same license, provided that the source code to your software does not directly incorporate parts of the source code of this software.
 
