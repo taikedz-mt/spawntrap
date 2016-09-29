@@ -33,17 +33,25 @@ local count_nearby_mobs = function(pos,radius)
 	return objcount
 end
 
-local get_mob_from_node = function(pos)
-	-- return the expected mob, or nil if none matches
-	-- get node under position
-	local underpos = {x=pos.x, y=pos.y-1, z=pos.z}
-	local tellernode = minetest.get_node(underpos).name
-	-- iterate spawnstep.mobnodes, check against nodename
-	for _,mobnode in pairs(spawnstep.mobnodes) do
+local match_from_pairs = function(lookuptable,tellernode)
+	for _,mobnode in pairs(lookuptable) do
 		-- if match, return mobstring
-		if mobnode.node == tellernode then return mobnode.mob end
+		if mobnode.node == tellernode then
+			return mobnode.mob
+		end
 	end
 	return nil
+end
+
+local get_mob_from_node = function(pos)
+	-- return the expected mob, or nil if none matches
+	-- get node under or over position
+	local tellerpos = {x=pos.x, y=pos.y-1, z=pos.z}
+	if spawnstep.overmode = true then
+		tellerpos = {x=pos.x, y=pos.y+1, z=pos.z}
+	end
+	local tellernode = minetest.get_node(tellerpos).name
+	return match_from_pairs(spawnstep.mobnodes,tellernode)
 end
 
 minetest.register_abm{
@@ -61,6 +69,9 @@ minetest.register_abm{
 						local mobnicename = mobname:sub(mobname:find(':')+1,#mobname )
 						minetest.chat_send_player(obj:get_player_name(),"A wild "..mobnicename.." appeared!")
 						spawnstep.spawn_mob(pos,mobname)
+						if spawnstep.remove == true then
+							minetest.remove_node(pos)
+						end
 					else
 						minetest.debug("Failed to determine a mob.")
 					end

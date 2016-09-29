@@ -7,6 +7,9 @@ spawnstep.interval = 1 -- how frequently to try to spawn a new mob (seconds)
 
 spawnstep.maxmobs = 1 -- maxiumum number of mobs to allow in area defined by spawn range, around the trap node
 
+spawnstep.overmode = false -- whether to look at node above instead of under
+spawnstep.remove = false -- whether to remove the node after spawning
+
 spawnstep.tiles = { -- define the tiles for the trap node
 	"default_stone.png^default_mese_crystal.png"
 }
