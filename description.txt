@@ -1,0 +1,1 @@
+Use a spawn trap block to spawn mobs. Type of mob is determined by the node directly underneath the trap block
