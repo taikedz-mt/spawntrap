@@ -1,5 +1,5 @@
 
-spawnstep.proximity = 5 -- radius range of player detection, around trap node
+spawnstep.proximity = 1 -- radius range of player detection, around trap node
 spawnstep.spawnrange = 7 -- radius range of where the mob will spawn
 
 spawnstep.interval = 1 -- how frequently to try to spawn a new mob (seconds)
