@@ -2,14 +2,6 @@
 
 spawnstep = {}
 
-spawnstep.proximity = 5 -- radius range of node detection
-spawnstep.spawnrange = 7 -- radius range of where the mob will spawn
-
-spawnstep.interval = 1
-
-spawnstep.maxmobs = 4 -- maxiumum number of mobs to allow in area
-
-
 dofile(minetest.get_modpath("spawnstep").."/spawndefs.lua")
 
 minetest.register_privilege("spawner","Allow player to spawn mobs")
@@ -17,7 +9,7 @@ minetest.register_privilege("digspawntrap","Allow player to dig spawn traps")
 
 minetest.register_node("spawnstep:spawntrap",{
 	description = "Spawn a mob depending on the block beneath it",
-	tiles = {"default_mese_block.png"},
+	tiles = spawnstep.tiles,
 	drawtype = "normal",
 	groups = {crumbly = 1},
 	on_dig = function(pos,node,player)
