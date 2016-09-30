@@ -12,14 +12,16 @@ minetest.register_node("spawnstep:spawntrap",{
 	end
 })
 
-core.register_craft({
-	output="spawnstep:spawntrap",
-	recipe={
-		{"","default:mese",""},
-		{"","default:obsidian",""},
-		{"default:diamondblock","default:obsidian","default:diamondblock"},
-	}
-})
+if spawnstep.craftable == true then
+	core.register_craft({
+		output="spawnstep:spawntrap",
+		recipe={
+			{"","default:mese",""},
+			{"","default:obsidian",""},
+			{"default:diamondblock","default:obsidian","default:diamondblock"},
+		}
+	})
+end
 
 
 local count_nearby_mobs = function(pos,radius)

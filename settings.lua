@@ -10,6 +10,7 @@ spawnstep.maxmobs = 1 -- maxiumum number of mobs to allow in area defined by spa
 spawnstep.overmode = false -- whether to look at node above instead of under
 spawnstep.remove = false -- whether to remove the node after spawning
 spawnstep.removeteller = false -- whether to remove the mob determining node after spawning
+spawnstep.craftable = false -- whether the spawn trap is craftable
 
 spawnstep.tiles = { -- define the tiles for the trap node
 	"default_stone.png^default_mese_crystal.png"
