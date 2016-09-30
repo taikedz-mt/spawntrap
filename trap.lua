@@ -43,13 +43,18 @@ local match_from_pairs = function(lookuptable,tellernode)
 	return nil
 end
 
+local get_tellerpos = function(pos)
+	local tellerpos = {x=pos.x, y=pos.y-1, z=pos.z}
+	if spawnstep.overmode == true then
+		tellerpos = {x=pos.x, y=pos.y+1, z=pos.z}
+	end
+	return tellerpos
+end
+
 local get_mob_from_node = function(pos)
 	-- return the expected mob, or nil if none matches
 	-- get node under or over position
-	local tellerpos = {x=pos.x, y=pos.y-1, z=pos.z}
-	if spawnstep.overmode = true then
-		tellerpos = {x=pos.x, y=pos.y+1, z=pos.z}
-	end
+	local tellerpos = get_tellerpos(pos)
 	local tellernode = minetest.get_node(tellerpos).name
 	return match_from_pairs(spawnstep.mobnodes,tellernode)
 end
@@ -71,6 +76,9 @@ minetest.register_abm{
 						spawnstep.spawn_mob(pos,mobname)
 						if spawnstep.remove == true then
 							minetest.remove_node(pos)
+						end
+						if spawnstep.removeteller == true then
+							minetest.remove_node(get_tellerpos(pos))
 						end
 					else
 						minetest.debug("Failed to determine a mob.")
