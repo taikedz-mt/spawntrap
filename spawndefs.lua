@@ -33,7 +33,7 @@ spawnstep.mobnodes = {
 		mob="nssm:antqueen"
 	},
 	tarantula = {
-		node="nssm:web",
+		node="mobs:cobweb",
 		mob="nssm:tarantula",
 	},
 	kraken = {
